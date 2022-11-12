@@ -1,0 +1,29 @@
+@startuml
+'https://plantuml.com/class-diagram
+title c'est un exemple d'utilisation du design pattern Composite
+interface Expression {
+ double getValue();
+}
+note right of Expression: Class qui représente une expression, \n il peut être une constante ou une opération binaire
+abstract class BinaryExpression {
+    Expression leftExpression;
+    Expression rightExpression;
+}
+class Adder{
+double getValue()
+}
+class Substracter{
+double getValue()
+}
+class Constant {
+ value : double;
+ double getValue();
+}
+
+BinaryExpression *-- Expression : have 2
+Expression <|-- BinaryExpression
+BinaryExpression <|-- Adder
+BinaryExpression <|-- Substracter
+Expression <|-- Constant
+
+@enduml
